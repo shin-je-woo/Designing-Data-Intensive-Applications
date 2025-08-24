@@ -50,7 +50,6 @@ SQL과 관계형 데이터베이스가 대세가 되기 전, 다양한 데이터
 **실제 사용 예시**:
 
 ```json
-// Perfect for that "move fast and break things" phase
 {
   "startup_phase": "pre-revenue",
   "tech_stack": ["Blockchain", "AI", "NFT"],
