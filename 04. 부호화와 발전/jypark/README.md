@@ -40,26 +40,26 @@
 - 예시(JSON → MessagePack): **66바이트**(텍스트 JSON의 경우 81바이트)
 - 미미한 공간 절약에 비해 가독성을 해칠만큼 가치가 있지는 않음
 
-![image.png](4%EC%9E%A5%20%EB%B6%80%ED%98%B8%ED%99%94%EC%99%80%20%EB%B0%9C%EC%A0%84%20267bf54ab74480e78273e101c0dd46ab/image.png)
+![image.png](image.png)
 
 ### 스리프트와 프로토콜 버퍼
 
-![image.png](4%EC%9E%A5%20%EB%B6%80%ED%98%B8%ED%99%94%EC%99%80%20%EB%B0%9C%EC%A0%84%20267bf54ab74480e78273e101c0dd46ab/image%201.png)
+![image.png](image%201.png)
 
 - **IDL (인터페이스 데피니션 랭기쥐)** 스키마로 필드 정의 → 코드 생성 →  직렬화/역직렬화 수행
 - 필드 태그 번호가 **핵심 식별자**
     - 새로운 필드는 새 태그로 추가하고, 제거시에도 태그는 **재사용 해서는 안됨**
 
-![image.png](4%EC%9E%A5%20%EB%B6%80%ED%98%B8%ED%99%94%EC%99%80%20%EB%B0%9C%EC%A0%84%20267bf54ab74480e78273e101c0dd46ab/image%202.png)
+![image.png](image%202.png)
 
-![image.png](4%EC%9E%A5%20%EB%B6%80%ED%98%B8%ED%99%94%EC%99%80%20%EB%B0%9C%EC%A0%84%20267bf54ab74480e78273e101c0dd46ab/image%203.png)
+![image.png](image%203.png)
 
 - **Thrift**
     - 두 가지 이진 부호화 형식 제공
     - **BinaryProtocol**: **59바이트**. 타입/태그를 매 필드에 붙여 직관적
     - **CompactProtocol**: **34바이트**. 타입/태그를 단일 바이트로 줄이고, 가변길이 정수 (**varint)** 로 줄여서 표현
 
-![image.png](4%EC%9E%A5%20%EB%B6%80%ED%98%B8%ED%99%94%EC%99%80%20%EB%B0%9C%EC%A0%84%20267bf54ab74480e78273e101c0dd46ab/image%204.png)
+![image.png](image%204.png)
 
 - **Protocol Buffers**
     - 같은 데이터가 **33바이트**. Thrift CompactProtocol 과 유사한 크기/원리
@@ -74,14 +74,14 @@
 
 ### 아브로
 
-![image.png](4%EC%9E%A5%20%EB%B6%80%ED%98%B8%ED%99%94%EC%99%80%20%EB%B0%9C%EC%A0%84%20267bf54ab74480e78273e101c0dd46ab/image%205.png)
+![image.png](image%205.png)
 
-![image.png](4%EC%9E%A5%20%EB%B6%80%ED%98%B8%ED%99%94%EC%99%80%20%EB%B0%9C%EC%A0%84%20267bf54ab74480e78273e101c0dd46ab/image%206.png)
+![image.png](image%206.png)
 
 - Avro IDL → 사람이 쓰기  쉬운 IDL 과 기계가 쉽게 읽을 수 있는 JSON 기반 언어
 - 숫자 태그가 없다 → 바이트는 **필드 순서 기반으로 부호화** 한다
 
-![image.png](4%EC%9E%A5%20%EB%B6%80%ED%98%B8%ED%99%94%EC%99%80%20%EB%B0%9C%EC%A0%84%20267bf54ab74480e78273e101c0dd46ab/image%207.png)
+![image.png](image%207.png)
 
 - **쓰기 스키마 ≠ 읽기 쓰기마** 처리가 가능하다
     - 두 스키마가 정확히 일치 하지 않아도 된다
@@ -127,3 +127,4 @@
     - **Akka**(JVM): 내부 직렬화 사용, 상위/하위 호환성은 직접 설계해야 하나 **롤링 업그레이드**에 맞춰 적용 가능.
     - **Orleans**(.NET): 가상 액터 모델, 클러스터 단위로 점진적 배포 설계.
     - **Erlang/OTP**: 핫코드 스와핑/레코드 스키마 변경 등 **장수 시스템**에 특화된 기능.
+
